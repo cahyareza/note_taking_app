@@ -1,3 +1,5 @@
+const emitter = mitt();
+
 const inputComponent = {
     template: `<input 
         :placeholder="placeholder"
@@ -6,7 +8,6 @@ const inputComponent = {
         class="input is-small" 
         type='text' />`,
     props: ['placeholder'],
-    emits: ["add-note"],
     data() {
         return {
             input: "",
@@ -14,7 +15,7 @@ const inputComponent = {
     },
     methods: {
         monitorEnterKey() {
-            this.$emit("add-note", {
+            emitter.emit("add-note", {
                 note: this.input,
                 timestamp: new Date().toLocaleString(),
             });
@@ -31,12 +32,15 @@ const app = {
             placeholder: 'Enter a note'
         }
     },
+    created() {
+        emitter.on("add-note", (event) => this.addNote(event));
+    },
     methods: {
         addNote(event) {
             this.notes.push(event.note);
             this.timestamps.push(event.timestamp);
             console.log('addnote');
-        }
+        },
     },
     components: {
         'input-component': inputComponent
