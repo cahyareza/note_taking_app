@@ -1,8 +1,19 @@
 const inputComponent = {
-    template: `<input class="input is-small" type='text' />`
+    template: `<input 
+        :placeholder="placeholder" 
+        class="input is-small" 
+        type='text' />`,
+    props: ['placeholder']
 }
 
 const app = {
+    data() {
+        return {
+            notes: [],
+            timestamps: [],
+            placeholder: 'Enter a note'
+        }
+    },
     components: {
         'input-component': inputComponent
     }

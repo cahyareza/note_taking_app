@@ -2,29 +2,36 @@
 <html>
 
 <head>
-  <meta charset="utf-8">
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.3/css/bulma.css">
-  <!-- <link rel="stylesheet" href="./public/styles.css" /> -->
-  <link rel="stylesheet" href="./public/debug.css" />
-  <title>Custom Events</title>
+    <meta charset="utf-8">
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.3/css/bulma.css" />
+    <link rel="stylesheet" href="./public/styles.css" />
+    <!-- <link rel="stylesheet" href="./public/debug.css" /> -->
+    <title>Custom Events</title>
 </head>
 
 <body>
-  <div id="app">
-    <div class="notes-section">
-      <div class="columns">
-        <div class="column has-text-centered">
-          <strong>Notes</strong>
+    <div id="app">
+        <div class="section">
+            <div class="container" style="padding-top: 30%;">
+                <div class="columns ">
+                    <div class="column is-half is-offset-one-quarter">
+                        <div class="columns is-multiline">
+                            <div class="column has-text-centered">
+                            <strong>Notes</strong>
+                            </div>
+                            <div class="column has-text-centered">
+                            <strong>Timestamp</strong>
+                            </div>
+                            <input-component :placeholder="placeholder"></input-component>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
         </div>
-        <div class="column has-text-centered">
-          <strong>Timestamp</strong>
-        </div>
-      </div>
-      <input-component></input-component>
     </div>
-  </div>
 
   <script src="https://unpkg.com/vue@next"></script>
   <script src="https://unpkg.com/mitt/dist/mitt.umd.js"></script>
