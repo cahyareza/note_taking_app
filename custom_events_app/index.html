@@ -19,12 +19,18 @@
                     <div class="column is-half is-offset-one-quarter">
                         <div class="columns is-multiline">
                             <div class="column has-text-centered">
-                            <strong>Notes</strong>
+                                <strong>Notes</strong>
+                                <div v-for="note in notes" class="notes">
+                                    {{ note }}
+                                </div>
                             </div>
                             <div class="column has-text-centered">
-                            <strong>Timestamp</strong>
+                                <strong>Timestamp</strong>
+                                <div v-for="timestamp in timestamps" class="timestamps">
+                                    {{ timestamp }}
+                                </div>
                             </div>
-                            <input-component :placeholder="placeholder"></input-component>
+                            <input-component @add-note="addNote" :placeholder="placeholder"></input-component>
                         </div>
                     </div>
                 </div>
